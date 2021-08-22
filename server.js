@@ -1,13 +1,17 @@
 const express = require('express');
-const app = express();
+const getTemps = require('./api');
 const port = process.env.PORT || 5000;
+
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send(`Server listening on port ${port}`);
-})
+require('./routes')(app);
+
+// app.get('/', (req, res) => {
+//     getTemps;
+// });
 
 
 app.listen(port, (err) => {
