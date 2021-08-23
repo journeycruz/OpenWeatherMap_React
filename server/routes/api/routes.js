@@ -2,23 +2,23 @@ const axios = require('axios');
 
 module.exports = (app) => {
 
-    let city;
+    let zipcode;
 
     app.post('/search-location', (req, res) => {
-        city = req.body.city;
+        zipcode = req.body.zipcode;
         res.redirect('/current-weather');
     });
 
     app.get('/search-location-forecast', (req, res) => {
-        const apiKey = '&apikey=3ba04439f0de5f224e32e47815249bc9&units=imperial&cnt=3';
-        const baseURL = 'https://api.openweathermap.org/data/2.5/forecast?city=';
+        const apiKey = '&appid=3ba04439f0de5f224e32e47815249bc9&units=imperial&cnt=3';
+        const baseURL = 'https://api.openweathermap.org/data/2.5/forecast?zip=';
 
-        const userLocation = (url1, url2, city) => {
-            let newURL = url1 + city + url2;
+        const userLocation = (url1, url2, zipcode) => {
+            let newURL = url1 + zipcode + url2;
             return newURL;
         };
 
-        const apiURL = userLocation(baseURL, apiKey, city);
+        const apiURL = userLocation(baseURL, apiKey, zipcode);
 
         axios.get(apiURL)
             .then(res => res.json())
@@ -27,7 +27,6 @@ module.exports = (app) => {
             })
             .catch(err => {
                 throw (err);
-                res.redirect('/error');
-            })
+            });
     });
 };

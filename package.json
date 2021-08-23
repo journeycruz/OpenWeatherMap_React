@@ -2,12 +2,11 @@
     "name": "openweathermap_react",
     "version": "1.0.0",
     "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-    "main": "server.js",
+    "main": "/server/server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js"
+        "start": "cd server && nodemon server.js"
     },
-    "proxy": "http://localhost:5000/",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/journeycruz/OpenWeatherMap_React.git"
@@ -20,6 +19,12 @@
     "homepage": "https://github.com/journeycruz/OpenWeatherMap_React#readme",
     "dependencies": {
         "axios": "^0.21.1",
+        "module-alias": "^2.2.2",
         "nodemon": "^2.0.12"
+    },
+    "_moduleAliases": {
+        "root": ".",
+        "routes": "./server/routes",
+        "server": "./server"
     }
 }

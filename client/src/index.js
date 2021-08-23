@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
+import Home from './Components/Home';
+import Forecast from './Components/Forecast';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+	<Router>
+		  <Route exact path='/' component={Home}/>
+		  <Route exact path='/current-weather' component={Forecast}/>
+		  {/* <Route exact path='/error' component={ErrorDisplay}/> */}
+	</Router>,
   document.getElementById('root')
 );
 
