@@ -25,8 +25,9 @@ class Forecast extends Component {
 			} else {
 			     this.setState({
 			        isLoading: false,
-			        currentTemp: Math.round(data.data.main.temp) + '°',
+			        currentTemp: data.data.main.temp + '°',
 					tomorrowTemp: data.data.main[1].temp,
+					twoDayTemp: data.data.main[2].temp,
 			        cityName: data.data.name
 			     });
 			}
@@ -59,6 +60,7 @@ class Forecast extends Component {
 				   </div>
 				   <div className='conditionDetails'>
 				      <p>Tomorrow's Forecast: {this.state.tomorrowTemp} </p>
+					  <p>Two Day Forecast: {this.state.twoDayTemp} </p>
 				   </div>
 			      </div> 
 			     <h4> Location | {this.state.cityName} </h4>
