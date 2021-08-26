@@ -10,10 +10,10 @@ app.use(express.json());
 
 require('./routes/api/routes')(app);
 
-app.use(express.static('public'));
+app.use(express.static('/client/public'));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/client/public', 'index.html'));
+app.all('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '/client/public/index.html'));
 });
 
 app.listen(port, (err) => {
