@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
     "main": "/server/server.js",
+    "engines": {
+        "node": "v12.18.0"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "cd server && nodemon server.js"
@@ -26,6 +29,6 @@
     "_moduleAliases": {
         "root": ".",
         "routes": "./server/routes",
-        "server": "./server"
+        "server": "./server/server.js"
     }
 }
