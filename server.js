@@ -21,7 +21,7 @@ app.use(cors({
 require('./routes/api/routes')(app);
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/public"));
+    app.use(express.static("client/build"));
 
     // force ssl redirect test
     app.use((req, res, next) => {
