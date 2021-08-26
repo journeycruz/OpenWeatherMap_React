@@ -1,4 +1,3 @@
-const axios = require('axios');
 const fetch = require('node-fetch');
 
 
@@ -23,7 +22,7 @@ module.exports = (app) => {
 
         const apiURL = userLocation(baseURL, apiKey, zipcode);
 
-        axios.get(apiURL)
+        fetch(apiURL)
             .then(res => res.json())
             .then(data => {
                 res.send({ data });
