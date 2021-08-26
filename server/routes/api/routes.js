@@ -7,6 +7,7 @@ module.exports = (app) => {
     app.post('/search-location', (req, res) => {
         zipcode = req.body.zipcode;
         res.redirect('/current-weather');
+        console.log(req.body.zipcode);
     });
 
     app.get('/search-location-forecast', (req, res) => {
