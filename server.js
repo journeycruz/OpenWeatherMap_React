@@ -32,7 +32,8 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 
-app.listen(PORT, (err) => {
-    if (err) { console.log(err) };
-    console.log(`Server listening on port ${PORT}`);
+const server = createServer(app);
+server.listen(PORT, err => {
+    if (err) throw err;
+    console.log(`Server listening on port: ${PORT}`);
 });

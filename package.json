@@ -30,7 +30,7 @@
     },
     "_moduleAliases": {
         "root": ".",
-        "routes": "./server/routes",
-        "server": "./server/server.js"
+        "routes": "./routes",
+        "server": "./server.js"
     }
 }
