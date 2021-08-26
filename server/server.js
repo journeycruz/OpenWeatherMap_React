@@ -13,7 +13,7 @@ require('./routes/api/routes')(app);
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/public', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '/client/public', 'index.html'));
 });
 
 app.listen(port, (err) => {
