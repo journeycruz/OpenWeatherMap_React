@@ -4,7 +4,7 @@
     "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
     "main": "/server/server.js",
     "engines": {
-        "node": "12.18.0"
+        "node": "v12.18.0"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,6 +22,7 @@
     "homepage": "https://github.com/journeycruz/OpenWeatherMap_React#readme",
     "dependencies": {
         "axios": "^0.21.1",
+        "cors": "^2.8.5",
         "module-alias": "^2.2.2",
         "node-fetch": "^2.6.1",
         "nodemon": "^2.0.12"
