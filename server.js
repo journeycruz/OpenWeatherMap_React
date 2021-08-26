@@ -20,11 +20,17 @@ app.use(cors({
 
 require('./routes/api/routes')(app);
 
-app.use(express.static('client/public'));
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/public"));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/client/public', 'index.html'));
-});
+    // force ssl redirect test
+    app.use((req, res, next) => {
+        if (req.headers['x-forwarded-proto'] !== 'https')
+            return res.redirect(['https://', req.get('Host'), req.url].join(''));
+
+        return next();
+    });
+}
 
 app.listen(PORT, (err) => {
     if (err) { console.log(err) };
