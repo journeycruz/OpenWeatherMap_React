@@ -76,7 +76,7 @@ class CurrentWeather extends Component {
 		   <div className='weatherCardContainer'>
 		     <div className='weatherCardError'>
 		        {/* <img src={NoLocationFound} alt='no location found'/> */}
-		           <p> Whoa! Looks like there was an error with your zipcode.</p>
+		           <p> Whoa! Looks like there was an error with your city.</p>
 		        <Link to='/'><button>Try Again</button></Link>
 		     </div>
 		   </div>
@@ -90,7 +90,6 @@ class CurrentWeather extends Component {
 			   </div>
 			   <div className='weatherCardContainer'>
 			      <div className='weatherCard'>
-				<img src={this.state.weatherIcon} alt='Weather icon'/>
 				   <div className='conditionsOverview'>
 				      <p>{this.state.currentTemp}</p>
 				      <p>{this.state.currentConditionDescription}</p>
@@ -105,14 +104,8 @@ class CurrentWeather extends Component {
 			</div>
 		)
 
-		const LoadingDisplay = (
-		   <div className='loading'>
-		      {/* <img className='loadingIcon' src={LoadingIcon} alt='loading icon'/> */}
-		   </div>
-		)
-
 		const CurrentWeatherCard = ( 
-		   this.state.isLoading === true ? <div> {LoadingDisplay} </div> : <div> {WeatherConditions} </div>
+		   <div> {WeatherConditions} </div>
 		)
 
 		return (

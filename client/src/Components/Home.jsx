@@ -12,9 +12,9 @@ const Home = () => {
             <p>Enter a US zip code below to get the current weather conditions for that area.</p>
          </div>
 
-         <div className='zipcodeInput'>
+         <div className='cityInput'>
 	  <form method='POST' action='/search-location'>
-	     <input type='text' placeholder='Enter zipcode..' name='zipcode'/>
+	     <input type='text' placeholder='Enter city..' name='city'/>
 	     <button>ENTER</button>
 	  </form>
          </div>
