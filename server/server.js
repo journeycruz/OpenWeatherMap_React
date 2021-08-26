@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -12,11 +12,11 @@ require('./routes/api/routes')(app);
 
 app.use(express.static('public'));
 
-app.all('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/client/public/index.html'));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '/client/public', 'index.html'));
 });
 
-app.listen(port, (err) => {
+app.listen(PORT, (err) => {
     if (err) { console.log(err) };
-    console.log(`Server listening on port ${port}`);
+    console.log(`Server listening on port ${PORT}`);
 });
