@@ -26,7 +26,6 @@ module.exports = (app) => {
             .then(res => res.json())
             .then(data => {
                 res.send({ data });
-                console.log(data);
             })
             .catch(err => {
                 throw (err);
