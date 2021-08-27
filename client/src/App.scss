@@ -1,6 +1,6 @@
 .hero {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #15172b;
@@ -126,6 +126,25 @@ label.placeholder {
 
 .submit:active {
     background-color: #06b;
+}
+
+.card {
+    margin-bottom: 5%;
+    height: 90%;
+    padding: 5%;
+}
+
+.footer {
+    background-color: #20252A;
+    padding-top: 35px;
+    color: white;
+    a {
+        text-decoration: none;
+        color: grey;
+    }
+    a:hover {
+        color: red;
+    }
 }
 
 @media only screen and (max-width: 576px) {
