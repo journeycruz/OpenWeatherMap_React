@@ -26,8 +26,7 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-const server = createServer(app);
-server.listen(PORT, err => {
+app.listen(PORT, err => {
     if (err) throw err;
     console.log(`Server listening on port: ${PORT}`);
 });
