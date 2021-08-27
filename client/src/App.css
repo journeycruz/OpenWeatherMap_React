@@ -10,6 +10,10 @@
     padding: 20px;
 }
 
+.vid-container {
+    min-height: fit-content;
+}
+
 .jumbotron {
     height: 100vh;
     padding-top: 40px;
@@ -122,4 +126,21 @@ label.placeholder {
 
 .submit:active {
     background-color: #06b;
+}
+
+@media only screen and (max-width: 576px) {
+    .hero {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #15172b;
+        border-radius: 0px;
+        height: 100%;
+        padding: 20px;
+        padding-top: 50%;
+    }
+    video {
+        display: none;
+    }
 }
