@@ -3,22 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from "@chakra-ui/react"
 
-import Home from './Components/Home';
-import Forecast from './Components/Forecast';
+import App from './App';
 
 ReactDOM.render(
-	<ChakraProvider>
-		<Router>
-			<Route exact path='/' component={Home}/>
-			<Route exact path='/current-weather' component={Forecast}/>
-			{/* <Route exact path='/error' component={ErrorDisplay}/> */}
-		</Router>
-	</ChakraProvider>
-,
+	<Router>
+		<App />
+	</Router>,
   document.getElementById('root')
 );
 

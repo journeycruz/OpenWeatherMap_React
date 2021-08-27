@@ -1,12 +1,15 @@
 import React from 'react';
 
+import Navigation from './Navbar';
+
 const Home = () => {
    return (
       <div>
+         <Navigation />
          <video className='videoTag' autoPlay loop muted>
             <source src='../assets/home_bg.mp4' type='video/mp4' />
          </video>
-         <div className="container col-md-7 text-center">
+         <div className="container test col-md-7 text-center">
             <div className='header'>
                <h2>Weather Forecast</h2>
             </div>

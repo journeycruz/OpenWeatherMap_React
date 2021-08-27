@@ -1,4 +1,4 @@
-.container {
+.test {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -9,6 +9,10 @@
     height: max-content;
     padding: 20px;
     width: 320px;
+}
+
+.navbar {
+    color: black;
 }
 
 .header {
