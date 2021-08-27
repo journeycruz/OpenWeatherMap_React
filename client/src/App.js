@@ -2,8 +2,8 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 
 // pages
-import Home from './Components/Home';
-import Forecast from './Components/Forecast';
+import Home from './Pages/Home';
+import Forecast from './Pages/Forecast';
 
 function App() {
   return (
