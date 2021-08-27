@@ -1,4 +1,28 @@
 .container {
-    margin: auto;
-    margin-top: 20vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: max-content;
+    padding: 20px;
+    width: 320px;
+}
+
+.header {
+    color: white;
+}
+
+.instructions {
+    color: white;
+}
+
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
