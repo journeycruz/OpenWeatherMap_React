@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 //components
 import ErrorPage from './Error';
+import { Loader } from '../Components/Loader';
 
 class CurrentWeather extends Component {
 	constructor(props) {
@@ -73,7 +74,7 @@ class CurrentWeather extends Component {
 		)
 		const LoadingDisplay = (
 			<div className='loading'>
-			   <p>Loading...</p>
+			   <Loader />
 			</div>
 		)
 		const CurrentWeatherCard = ( 
