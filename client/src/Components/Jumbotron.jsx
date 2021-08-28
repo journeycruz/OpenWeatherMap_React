@@ -1,6 +1,6 @@
 import React from 'react'
 import { Jumbotron } from 'reactstrap';
-import {Animated} from "react-animated-css";
+import { Animated } from "react-animated-css";
 
 const Hero = () => {
     return (

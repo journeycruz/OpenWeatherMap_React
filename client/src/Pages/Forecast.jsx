@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+//components
+import ErrorPage from './Error';
+
 class CurrentWeather extends Component {
 	constructor(props) {
 		super(props);
@@ -47,17 +50,8 @@ class CurrentWeather extends Component {
 	}
 
 	render() {
-		const WeatherCardError = (
-		   <div className='weatherCardContainer'>
-		     <div className='weatherCardError'>
-		           <p> Whoa! Looks like there was an error with your city.</p>
-		        <Link to='/'><button>Try Again</button></Link>
-		     </div>
-		   </div>
-		)
-
 		const WeatherConditions = (
-			this.state.cityNotFound === 404 ? <div> { WeatherCardError } </div> :
+			this.state.cityNotFound === '404' ? <ErrorPage /> :
 			<div>
 			   <div className='homeBtn'>
 				     <Link to='/'><button>Home</button></Link>
