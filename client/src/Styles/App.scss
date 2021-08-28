@@ -1,6 +1,6 @@
 // Layouts
-$smlg-device: 'only screen and (max-width: 1199px)';
-$extra-device: 'only screen and (min-width: 1600px) and (max-width: 1919px)';
+$short-window: 'only screen and (max-height: 484px)';
+$extra-device: 'only screen and (min-width: 1600px) and (max-width: 2560px)';
 $laptop-device: 'only screen and (min-width: 1200px) and (max-width: 1599px)';
 $lg-layout: 'only screen and (min-width: 992px) and (max-width: 1199px)';
 $md-layout:'only screen and (min-width: 768px) and (max-width: 991px)';
@@ -172,5 +172,17 @@ label.placeholder {
     }
     video {
         display: none;
+    }
+}
+
+@media #{$extra-device} {
+    .hero {
+        top: 50%;
+    }
+}
+
+@media #{$short-window} {
+    .hero {
+        top: 65%;
     }
 }
