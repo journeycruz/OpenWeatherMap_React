@@ -23,6 +23,12 @@ class CurrentWeather extends Component {
 		fetch('/search-location-weather')
 		.then(res => res.json())
 		.then(data => {
+			if(data.data.cod === '404') {
+				this.setState({
+					isLoading: false,
+					cityNotFound: '404'
+				})
+			} else {
 			     this.setState({
 			        isLoading: false,
 			        currentTemp: Math.round(data.data.main.temp) + '°',
@@ -34,7 +40,7 @@ class CurrentWeather extends Component {
 			        cityName: data.data.name
 			     });
 			}
-		)
+		})
 		.catch(err => {
 		   console.log(err);
 		})	
@@ -71,10 +77,14 @@ class CurrentWeather extends Component {
 			   </div>
 			</div>
 		)
-
-		const CurrentWeatherCard = ( 
-		   <div> {WeatherConditions} </div>
+		const LoadingDisplay = (
+			<div className='loading'>
+			   <p>Loading...</p>
+			</div>
 		)
+		const CurrentWeatherCard = ( 
+			this.state.isLoading === true ? <div> {LoadingDisplay} </div> : <div> {WeatherConditions} </div>
+		 )
 
 		return (
 		   <div>

@@ -15,7 +15,7 @@ $small-mobile: 'only screen and (max-width: 479px)';
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #15172b;
-    border-radius: 20px;
+    border-radius: 5px;
     box-sizing: border-box;
     height: max-content;
     padding: 20px;
@@ -155,6 +155,26 @@ label.placeholder {
     }
     a:hover {
         color: red;
+    }
+}
+
+.App-logo {
+    height: 4.5vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
 

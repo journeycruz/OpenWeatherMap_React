@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
-// import logo from "./logo.svg";
+import logo from '../logo.svg'
 
 
 const Footer = () => {
@@ -11,11 +11,11 @@ const Footer = () => {
             <hr className="clearfix w-100 d-md-none" />
             <MDBCol md="2"></MDBCol>
             <MDBCol md="5">
-                <a href="/"><p>Fork This Project</p></a>
-                <a href="/"><p>Find More Projects</p></a>
-                <a href="/"><p>Buy me a taco 🌮</p></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/journeycruz/OpenWeatherMap_React"><p>Fork This Project</p></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/journeycruz?tab=repositories"><p>Find More Projects</p></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/journeycruz"><p>Buy me a taco 🌮</p></a>
             <div>
-                {/* Powered By:&nbsp; ReactJS<img src={logo} className="App-logo" alt="logo" /> */}
+                Powered By:&nbsp; ReactJS<img src={logo} className="App-logo" alt="logo" />
             </div>
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
@@ -25,7 +25,7 @@ const Footer = () => {
             </h5>
             <ul className="list-unstyled">
               <li>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/journeycruz/React_Employee_Directory/blob/master/LICENSE">MIT License</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/journeycruz/OpenWeatherMap_React/blob/main/LICENSE.md">MIT License</a>
               </li>
             </ul>
           </MDBCol>
@@ -59,7 +59,7 @@ const Footer = () => {
             </a>
           </li>
           <li className="list-inline-item">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/journey-cruz-32a0a695" className="btn-floating btn-sm btn-gplus mx-1">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/journeycruz/" className="btn-floating btn-sm btn-gplus mx-1">
               <i className="fab fa-linkedin"> </i>
             </a>
           </li>
@@ -67,7 +67,7 @@ const Footer = () => {
       </div>
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a target="_blank" rel="noopener noreferrer" href="https://journeycruz.github.io/WebDevPortfolio/"> Journey Cruz </a>
+          &copy; {new Date().getFullYear()} Copyright: <a target="_blank" rel="noopener noreferrer" href="https://webdevportfolio20.herokuapp.com/"> Journey Cruz </a>
         </MDBContainer>
       </div>
     </MDBFooter>

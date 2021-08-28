@@ -13,11 +13,11 @@ const Navigation = () => {
                     <Nav.Link href="#features">How It Works</Nav.Link>
                     <NavDropdown title="Developer" id="collasible-nav-dropdown"
                     menuVariant="dark">
-                        <NavDropdown.Item href="https://github.com/journeycruz/OpenWeatherMap_React">Fork this project</NavDropdown.Item>
-                        <NavDropdown.Item href="https://webdevportfolio20.herokuapp.com/">Find more projects</NavDropdown.Item>
-                        <NavDropdown.Item href="https://openweathermap.org/api">Open Weather Map API</NavDropdown.Item>
+                        <NavDropdown.Item target="_blank" rel="noopener noreferrer" href="https://github.com/journeycruz/OpenWeatherMap_React">Fork this project</NavDropdown.Item>
+                        <NavDropdown.Item target="_blank" rel="noopener noreferrer" href="https://webdevportfolio20.herokuapp.com/">Find more projects</NavDropdown.Item>
+                        <NavDropdown.Item target="_blank" rel="noopener noreferrer" href="https://openweathermap.org/api">Open Weather Map API</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="https://www.buymeacoffee.com/journeycruz">Buy me a taco &nbsp;🌮</NavDropdown.Item>
+                        <NavDropdown.Item target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/journeycruz">Buy me a taco &nbsp;🌮</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
                     <Nav>

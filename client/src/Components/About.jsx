@@ -8,36 +8,36 @@ const ServiceList = [
     icon: <VscDebugStart />,
     title: "Step 1",
     description:
-      "Details about this step.",
+      "Heroku communicates with Express Server to load React SPA.",
   },
   {
     icon: <GrLinkNext />,
     title: "Step 2",
-    description: "Details about this step.",
+    description: "User uses input field to enter a city name.",
   },
   {
     icon: <GrLinkNext />,
     title: "Step 3",
     description:
-      "Details about this step.",
+      "City name is sent to back-end server via POST method and React Router renders Weather Dashboard.",
   },
   {
     icon: <GrLinkNext />,
     title: "Step 4",
     description:
-      "Details about this step.",
+      "Once Forecast Dashboard is loaded, an API call is sent via GET method to the Open Weather Map API with the city name entered in the input field insterted into the URL.",
   },
   {
     icon: <GrLinkNext />,
     title: "Step 5",
     description:
-      "Details about this step.",
+      "Once data is received back from the API call, state keys are updated with new values from the API.",
   },
   {
     icon: <FiCheckSquare />,
     title: "Step 6",
     description:
-      "Details about this step.",
+      "New state key values are rendered on the Forecast Dashboard.",
   },
 ];
 
