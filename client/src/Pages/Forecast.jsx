@@ -12,6 +12,7 @@ class CurrentWeather extends Component {
 		   this.state = ({
 		      isLoading: true,
 		      currentTemp: '',
+			  feelsLike: '',
 		      humidity: '',
 		      wind: '',
 		      windDirection: '',
@@ -19,8 +20,13 @@ class CurrentWeather extends Component {
 		      currentConditionDescription: '',
 		      weatherIcon: '',
 		      cityName: '',
-		      cityNotFound: ''
-		   })
+		      cityNotFound: '',
+			  tomorrowTemp: '',
+			  day3: '',
+			  day4: '',
+			  day5: '',
+			  day6: '',
+				   })
 	}
 
 	componentDidMount() {
@@ -36,6 +42,7 @@ class CurrentWeather extends Component {
 			     this.setState({
 			        isLoading: false,
 			        currentTemp: Math.round(data.data.main.temp) + '°',
+					feelsLike: Math.round(data.data.main.feels_like) + '°',
 			        humidity: data.data.main.humidity + '%',
 			        wind: Math.round(data.data.wind.speed) + ' mph',
 			        windDirection: data.data.wind.deg,
@@ -47,8 +54,27 @@ class CurrentWeather extends Component {
 		})
 		.catch(err => {
 		   console.log(err);
-		})	
-	}
+		})
+
+		fetch('/search-location-forecast')
+			.then(res => res.json())
+			.then(response => {
+				if (response.response.cod === '404') {
+					this.setState({
+						isLoading: false,
+						cityNotFound: '404'
+					})
+				} else {
+					this.setState({
+					tomorrowTemp: Math.round(response.response.list[0].main.temp) + '°',
+					day3: Math.round(response.response.list[1].main.temp) + '°',
+					day4: Math.round(response.response.list[2].main.temp) + '°',
+					day5: Math.round(response.response.list[3].main.temp) + '°',
+					day6: Math.round(response.response.list[4].main.temp) + '°',
+				});
+			}
+			})
+		}
 
 	render() {
 		const WeatherConditions = (
@@ -58,17 +84,23 @@ class CurrentWeather extends Component {
 				     <Link to='/'><button>Home</button></Link>
 			   </div>
 			   <div className='weatherCardContainer'>
+			   <h4> Location | {this.state.cityName} </h4>
 			      <div className='weatherCard'>
 				   <div className='conditionsOverview'>
-				      <p>{this.state.currentTemp}</p>
-				      <p>{this.state.currentConditionDescription}</p>
+				      <p>Current Temperature: {this.state.currentTemp}</p>
+					  <p>Feels Like: {this.state.feelsLike}</p>
+				      <p>Description: {this.state.currentConditionDescription}</p>
 				   </div>
 				   <div className='conditionDetails'>
 				      <p>Humidity: {this.state.humidity} </p>
 				      <p>Wind Speed: {this.state.wind} </p>
 				   </div>
 			      </div> 
-			     <h4> Location | {this.state.cityName} </h4>
+				 <p>Tomorrow's Forecast: {this.state.tomorrowTemp}</p>
+				 <p>2-Day Forecast: {this.state.day3}</p>
+				 <p>3-Day Forecast: {this.state.day4}</p>
+				 <p>4-Day Forecast: {this.state.day5}</p>
+				 <p>5-Day Forecast: {this.state.day6}</p>
 			   </div>
 			</div>
 		)

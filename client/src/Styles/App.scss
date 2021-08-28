@@ -368,6 +368,15 @@ a {
     video {
         display: none;
     }
+    .error {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border: 1px solid lightgray;
+        height: 100vh;
+        width: 50vh;
+        display: grid;
+        place-items: center;
+    }
 }
 
 @media #{$extra-device} {
