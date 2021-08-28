@@ -1,4 +1,4 @@
-import './App.scss';
+import './Styles/App.scss';
 import { Route, Switch } from 'react-router-dom';
 
 // pages
