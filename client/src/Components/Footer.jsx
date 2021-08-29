@@ -22,12 +22,6 @@ const Footer = () => {
               href='https://github.com/journeycruz?tab=repositories'>
               <p>Find More Projects</p>
             </a>
-            <a
-              target='_blank'
-              rel='noopener noreferrer'
-              href='https://www.buymeacoffee.com/journeycruz'>
-              <p>Buy me a taco 🌮</p>
-            </a>
             <div>
               Powered By:&nbsp; ReactJS
               <img src={logo} className='App-logo' alt='logo' />

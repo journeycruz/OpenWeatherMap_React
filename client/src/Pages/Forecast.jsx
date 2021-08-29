@@ -5,7 +5,8 @@ import ReactAnimatedWeather from "react-animated-weather";
 
 //components
 import ErrorPage from "./Error";
-import { Throbber } from "../Components/Throbber";
+import { Loading } from "../Components/Loading";
+import { getCardinal } from "../Components/getCardinal";
 
 class CurrentWeather extends Component {
   constructor(props) {
@@ -58,33 +59,6 @@ class CurrentWeather extends Component {
     const average = (a, b, c) => {
       let sum = a + b + c;
       return Math.round(sum / 3);
-    };
-
-    const getCardinal = (angle) => {
-      const degreePerDirection = 360 / 8;
-      const offsetAngle = angle + degreePerDirection / 2;
-      return offsetAngle >= 0 * degreePerDirection &&
-        offsetAngle < 1 * degreePerDirection
-        ? "N"
-        : offsetAngle >= 1 * degreePerDirection &&
-          offsetAngle < 2 * degreePerDirection
-        ? "NE"
-        : offsetAngle >= 2 * degreePerDirection &&
-          offsetAngle < 3 * degreePerDirection
-        ? "E"
-        : offsetAngle >= 3 * degreePerDirection &&
-          offsetAngle < 4 * degreePerDirection
-        ? "SE"
-        : offsetAngle >= 4 * degreePerDirection &&
-          offsetAngle < 5 * degreePerDirection
-        ? "S"
-        : offsetAngle >= 5 * degreePerDirection &&
-          offsetAngle < 6 * degreePerDirection
-        ? "SW"
-        : offsetAngle >= 6 * degreePerDirection &&
-          offsetAngle < 7 * degreePerDirection
-        ? "W"
-        : "NW";
     };
 
     fetch("/search-location-weather")
@@ -228,7 +202,7 @@ class CurrentWeather extends Component {
         <div className='transparent'>
           <Animated isVisible='true' animationIn='fadeIn'>
             <div className='weatherCardContainer shadow-lg p-3 mb-5 rounded'>
-              <Breadcrumb>
+              <Breadcrumb style={{ textDecoration: 'none', color: '#F2F2F2' }}>
                 <Breadcrumb.Item href='/'>Home</Breadcrumb.Item>
                 <Breadcrumb.Item active href='/weather-dashboard'>
                   Weather Dashboard
@@ -352,7 +326,7 @@ class CurrentWeather extends Component {
       );
     const LoadingDisplay = (
       <div className='loading'>
-        <Throbber />
+        <Loading />
       </div>
     );
     const CurrentWeatherCard =

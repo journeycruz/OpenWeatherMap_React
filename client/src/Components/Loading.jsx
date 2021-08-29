@@ -1,11 +1,11 @@
 import React from "react";
 
-export const Throbber = () => {
+export const Loading = () => {
   return (
     <div>
       <div className='preloader' style={{ opacity: "1" }}>
         <svg
-          className='loader'
+          className='ldngSpinner'
           version='1.1'
           id='sun'
           xmlns='http://www.w3.org/2000/svg'
@@ -75,7 +75,7 @@ export const Throbber = () => {
         </svg>
 
         <svg
-          className='loader'
+          className='ldngSpinner'
           version='1.1'
           id='cloud'
           xmlns='http://www.w3.org/2000/svg'
@@ -106,7 +106,7 @@ export const Throbber = () => {
           <span className='drop'></span>
         </div>
 
-        <div className='text'>LOOKING OUTSIDE FOR YOU... ONE SEC</div>
+        <div className='ldngText'>LOOKING OUTSIDE FOR YOU... ONE SEC</div>
       </div>
     </div>
   );

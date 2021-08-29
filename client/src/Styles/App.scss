@@ -8,13 +8,13 @@ $sm-layout: "only screen and (max-width: 767px)";
 $large-mobile: "only screen and (max-width: 575px)";
 $small-mobile: "only screen and (max-width: 479px)";
 //
-// Style
+// Jumbotron
 .hero {
     position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #15172b;
+    background-color: #555C73;
     border-radius: 5px;
     box-sizing: border-box;
     height: max-content;
@@ -31,11 +31,11 @@ $small-mobile: "only screen and (max-width: 479px)";
 }
 
 .header {
-    color: white;
+    color: #F2F2F2;
 }
 
 .instructions {
-    color: white;
+    color: #F2F2F2;
 }
 
 video {
@@ -61,7 +61,7 @@ video {
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;
-    color: #eee;
+    color: #F2F2F2;
     font-size: 18px;
     height: 100%;
     outline: 0;
@@ -70,7 +70,7 @@ video {
 }
 
 .cut {
-    background-color: #15172b;
+    background-color: #555C73;
     border-radius: 10px;
     height: 20px;
     left: 20px;
@@ -112,20 +112,20 @@ label.placeholder {
 }
 
 .input:not(:placeholder-shown)~.placeholder {
-    color: #808097;
+    color: #F2F2F2;
 }
 
 .input:focus~.placeholder {
-    color: #dc2f55;
-    background-color: #15172b;
+    color: #D9AC59;
+    background-color: #555C73;
 }
 
 .submit {
-    background-color: #08d;
+    background-color: #BF9663;
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;
-    color: #eee;
+    color: #F2F2F2;
     cursor: pointer;
     font-size: 18px;
     height: 50px;
@@ -136,7 +136,7 @@ label.placeholder {
 }
 
 .submit:active {
-    background-color: #06b;
+    background-color: #D9AC59;
 }
 
 .card {
@@ -148,13 +148,13 @@ label.placeholder {
 .footer {
     background-color: #20252a;
     padding-top: 35px;
-    color: white;
+    color: #F2F2F2;
     a {
         text-decoration: none;
-        color: grey;
+        color: #F2F2F2;
     }
     a:hover {
-        color: red;
+        color: #BF9663;
     }
 }
 
@@ -174,11 +174,11 @@ label.placeholder {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid lightgray;
     height: 85vh;
     width: 85vh;
     display: grid;
     place-items: center;
+    background-color: #D9AC59;
 }
 
 #error-vector {
@@ -188,7 +188,7 @@ label.placeholder {
 }
 
 a {
-    color: #f66947;
+    color: #D9AC59;
     text-decoration: none;
 }
 
@@ -203,7 +203,7 @@ a {
     top: 50%;
 }
 
-.loader {
+.ldngSpinner {
     width: 110px;
     height: 110px;
 }
@@ -241,7 +241,7 @@ a {
 
 #sun path {
     stroke-width: 0.18;
-    fill: #9ea1a4;
+    fill: #F2F2F2
 }
 
 @keyframes rotate {
@@ -266,7 +266,7 @@ a {
 
 .drop {
     opacity: 1;
-    background: #9ea1a4;
+    background: #F2F2F2;
     display: block;
     float: left;
     width: 3px;
@@ -332,7 +332,7 @@ a {
     }
 }
 
-.text {
+.ldngText {
     font-family: Helvetica, "Helvetica Neue", sans-serif;
     letter-spacing: 1px;
     text-align: center;
@@ -340,7 +340,7 @@ a {
     font-weight: bold;
     margin-top: 20px;
     font-size: 11px;
-    color: #a0a0a0;
+    color: #F2F2F2;
     width: 200px;
 }
 
@@ -359,7 +359,7 @@ a {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #15172b;
+        background-color: #555C73;
         border-radius: 0px;
         height: 100%;
         padding: 20px;
@@ -371,11 +371,12 @@ a {
     .error {
         position: absolute;
         transform: translate(-50%, -50%);
-        border: 1px solid lightgray;
+        border: 1px solid #F2F2F2;
         height: 100vh;
         width: 50vh;
         display: grid;
         place-items: center;
+        background-color: #D9AC59;
     }
 }
 
@@ -383,10 +384,10 @@ a {
 .weatherCardContainer {
     position: relative;
     width: 95%;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    // border: 1px solid rgba(255, 255, 255, 0.4);
     margin: auto;
     margin-top: 2.2vh;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(242, 242, 242, 0.623);
     backdrop-filter: blur(10px);
     color: white;
 }
@@ -435,7 +436,7 @@ a {
 }
 
 .transparent {
-    background-image: linear-gradient(#f5456d, #f4791f);
+    background-image: linear-gradient(#696E8C, #555C73);
 }
 
 .fcCrd {
@@ -446,7 +447,7 @@ a {
     margin: 1%;
     margin-right: auto;
     margin-left: auto;
-    background-color: rgba(255, 255, 255, 0.651);
+    background-color: rgba(242, 242, 242, 0.623);
     backdrop-filter: blur(10px);
 }
 
