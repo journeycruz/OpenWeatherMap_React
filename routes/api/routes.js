@@ -6,11 +6,7 @@ module.exports = (app) => {
 
     app.post('/search-location', (req, res) => {
         city = req.body.city;
-        if (typeof city === 'string') {
-            res.redirect('/error')
-        } else {
-            res.redirect('/weather-dashboard');
-        }
+        res.redirect('/weather-dashboard');
     });
 
     app.get('/search-location-weather', (req, res) => {

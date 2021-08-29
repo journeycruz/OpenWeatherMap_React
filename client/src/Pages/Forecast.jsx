@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Animated } from "react-animated-css";
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import ReactAnimatedWeather from 'react-animated-weather';
 
 //components
 import ErrorPage from './Error';
@@ -39,6 +41,19 @@ class CurrentWeather extends Component {
 					cityNotFound: '404'
 				})
 			} else {
+				let weatherId = data.data.weather[0].id;
+
+				if(weatherId <= 232) {
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SLEET' color='black' size='64' animate='true' /> })
+				} else if(weatherId >= 300 && weatherId <= 531) {
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='RAIN' color='black' size='64' animate='true' /> });
+				} else if(weatherId >= 600 && weatherId <= 622 ) {
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SNOW' color='black' size='64' animate='true' /> });
+				} else if(weatherId === 800) {
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLEAR_DAY' color='black' size='64' animate='true' /> });
+				} else if(weatherId >= 801 && weatherId <= 804) {
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLOUDY' color='black' size='64' animate='true' /> });
+				}
 			     this.setState({
 			        isLoading: false,
 			        currentTemp: Math.round(data.data.main.temp) + '°',
@@ -65,6 +80,19 @@ class CurrentWeather extends Component {
 						cityNotFound: '404'
 					})
 				} else {
+					let weatherId = response.response.list[0].weather.id;
+
+					if(weatherId <= 232) {
+						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SLEET' color='black' size='64' animate='true' /> })
+					} else if(weatherId >= 300 && weatherId <= 531) {
+						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='RAIN' color='black' size='64' animate='true' /> });
+					} else if(weatherId >= 600 && weatherId <= 622 ) {
+						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SNOW' color='black' size='64' animate='true' /> });
+					} else if(weatherId === 800) {
+						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLEAR_DAY' color='black' size='64' animate='true' /> });
+					} else if(weatherId >= 801 && weatherId <= 804) {
+						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLOUDY' color='black' size='64' animate='true' /> });
+					}
 					this.setState({
 					tomorrowTemp: Math.round(response.response.list[0].main.temp) + '°',
 					day3: Math.round(response.response.list[1].main.temp) + '°',
@@ -79,15 +107,21 @@ class CurrentWeather extends Component {
 	render() {
 		const WeatherConditions = (
 			this.state.cityNotFound === '404' ? <ErrorPage /> :
-			<div>
-			   <div className='homeBtn'>
-				     <Link to='/'><button>Home</button></Link>
-			   </div>
-			   <div className='weatherCardContainer'>
-			   <h4> Location | {this.state.cityName} </h4>
+			<div className='transparent'>
+				<Animated isVisible='true' animationIn='fadeIn'>
+			   <div className='weatherCardContainer shadow-lg p-3 mb-5 rounded'>
+				<Breadcrumb>
+						<Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+						<Breadcrumb.Item active href="/weather-dashboard">
+							Weather Dashboard
+						</Breadcrumb.Item>
+					</Breadcrumb>
 			      <div className='weatherCard'>
+					  <div className="currentWeather shadow-lg">
+					  <h4> Location | {this.state.cityName} </h4>
 				   <div className='conditionsOverview'>
 				      <p>Current Temperature: {this.state.currentTemp}</p>
+						<div>{this.state.weatherIcon}</div>
 					  <p>Feels Like: {this.state.feelsLike}</p>
 				      <p>Description: {this.state.currentConditionDescription}</p>
 				   </div>
@@ -95,14 +129,32 @@ class CurrentWeather extends Component {
 				      <p>Humidity: {this.state.humidity} </p>
 				      <p>Wind Speed: {this.state.wind} </p>
 				   </div>
-			      </div> 
+				   </div>
+				   <div className="frcstWeather shadow-lg">
+				  <div className="row frcstRow">
+				  <div className="fcCrd col-lg-2 shadow-lg">
 				 <p>Tomorrow's Forecast: {this.state.tomorrowTemp}</p>
+				 <div>{this.state.weatherIcon}</div>
+				 </div>
+				 <div className="fcCrd col-lg-2 shadow-lg">
 				 <p>2-Day Forecast: {this.state.day3}</p>
+				 </div>
+				 <div className="fcCrd col-lg-2 shadow-lg">
 				 <p>3-Day Forecast: {this.state.day4}</p>
+				 </div>
+				 <div className="fcCrd col-lg-2 shadow-lg">
 				 <p>4-Day Forecast: {this.state.day5}</p>
+				 </div>
+				 <div className="fcCrd col-lg-2 shadow-lg">
 				 <p>5-Day Forecast: {this.state.day6}</p>
+				 </div>
+			   </div>
+			   </div>
 			   </div>
 			</div>
+			</Animated>
+			</div> 
+
 		)
 		const LoadingDisplay = (
 			<div className='loading'>
@@ -117,6 +169,7 @@ class CurrentWeather extends Component {
 		   <div>
 	             { CurrentWeatherCard }
 		   </div>
+		   
 		)
 	}
 }

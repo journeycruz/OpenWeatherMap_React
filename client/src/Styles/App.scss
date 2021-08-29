@@ -379,6 +379,57 @@ a {
     }
 }
 
+// Weather Dashboard
+.weatherCardContainer {
+    position: relative;
+    width: 95%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin: auto;
+    margin-top: 2.2vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.currentWeather {
+    border-radius: 10px;
+    padding: 20px;
+    height: 38.5vh;
+    margin-bottom: 2vh;
+    background-color: rgba(0, 0, 0, 0.651);
+    backdrop-filter: blur(10px);
+}
+
+.frcstRow {
+    width: 100%;
+}
+
+.frcstWeather {
+    border-radius: 10px;
+    height: max-content;
+    padding: 15px;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.651);
+    backdrop-filter: blur(10px);
+}
+
+.transparent {
+    background-image: linear-gradient(#F5456D, #475BED);
+}
+
+.fcCrd {
+    border-radius: 10px;
+    padding: 20px;
+    height: 40vh;
+    color: black;
+    margin: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(255, 255, 255, 0.651);
+    backdrop-filter: blur(10px);
+}
+
 @media #{$extra-device} {
     .hero {
         top: 50%;
