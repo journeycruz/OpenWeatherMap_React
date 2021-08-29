@@ -402,6 +402,13 @@ a {
 
 .frcstRow {
     width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.frcstTitle {
+    margin-bottom: 2vh;
+    padding-left: 5vh;
 }
 
 .lead {
@@ -412,8 +419,6 @@ a {
     border-radius: 10px;
     height: max-content;
     padding: 15px;
-    display: grid;
-    place-items: center;
     background-color: rgba(0, 0, 0, 0.651);
     backdrop-filter: blur(10px);
     margin-top: 2vh;
@@ -424,6 +429,11 @@ a {
     font-size: medium;
 }
 
+.forecastDetails {
+    margin: auto;
+    font-size: small;
+}
+
 .transparent {
     background-image: linear-gradient(#f5456d, #f4791f);
 }
@@ -431,7 +441,7 @@ a {
 .fcCrd {
     border-radius: 10px;
     padding: 20px;
-    height: 40vh;
+    height: max-content;
     color: black;
     margin: 1%;
     margin-right: auto;

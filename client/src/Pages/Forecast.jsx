@@ -28,14 +28,65 @@ class CurrentWeather extends Component {
       cityNotFound: "",
       weatherIconForecast: "",
       tomorrowTemp: "",
+      day2: "",
       day3: "",
       day4: "",
       day5: "",
-      day6: "",
+      tomorrowWind: "",
+      tomorrowHumidity: "",
+      tomorrowFL: "",
+      twoWind: "",
+      twoHumidity: "",
+      twoFL: "",
+      threeWind: "",
+      threeHumidiy: "",
+      threeFL: "",
+      fourWind: "",
+      fourHumidity: "",
+      fourFL: "",
+      fiveWind: "",
+      fiveHumidity: "",
+      fiveFL: "",
+      sixWind: "",
+      sixHumidity: "",
+      sixFL: "",
+      avgTemp: "",
     };
   }
 
   componentDidMount() {
+    const average = (a, b, c) => {
+      let sum = a + b + c;
+      return Math.round(sum / 3);
+    };
+
+    const getCardinal = (angle) => {
+      const degreePerDirection = 360 / 8;
+      const offsetAngle = angle + degreePerDirection / 2;
+      return offsetAngle >= 0 * degreePerDirection &&
+        offsetAngle < 1 * degreePerDirection
+        ? "N"
+        : offsetAngle >= 1 * degreePerDirection &&
+          offsetAngle < 2 * degreePerDirection
+        ? "NE"
+        : offsetAngle >= 2 * degreePerDirection &&
+          offsetAngle < 3 * degreePerDirection
+        ? "E"
+        : offsetAngle >= 3 * degreePerDirection &&
+          offsetAngle < 4 * degreePerDirection
+        ? "SE"
+        : offsetAngle >= 4 * degreePerDirection &&
+          offsetAngle < 5 * degreePerDirection
+        ? "S"
+        : offsetAngle >= 5 * degreePerDirection &&
+          offsetAngle < 6 * degreePerDirection
+        ? "SW"
+        : offsetAngle >= 6 * degreePerDirection &&
+          offsetAngle < 7 * degreePerDirection
+        ? "W"
+        : "NW";
+    };
+
     fetch("/search-location-weather")
       .then((res) => res.json())
       .then((data) => {
@@ -53,7 +104,7 @@ class CurrentWeather extends Component {
                 <ReactAnimatedWeather
                   icon='SLEET'
                   color='darkgrey'
-                  size='200'
+                  size='150'
                   animate='true'
                 />
               ),
@@ -64,7 +115,7 @@ class CurrentWeather extends Component {
                 <ReactAnimatedWeather
                   icon='RAIN'
                   color='darkgrey'
-                  size='200'
+                  size='150'
                   animate='true'
                 />
               ),
@@ -75,7 +126,7 @@ class CurrentWeather extends Component {
                 <ReactAnimatedWeather
                   icon='SNOW'
                   color='darkgrey'
-                  size='200'
+                  size='150'
                   animate='true'
                 />
               ),
@@ -86,7 +137,7 @@ class CurrentWeather extends Component {
                 <ReactAnimatedWeather
                   icon='CLEAR_DAY'
                   color='goldenrod'
-                  size='200'
+                  size='150'
                   animate='true'
                 />
               ),
@@ -97,7 +148,7 @@ class CurrentWeather extends Component {
                 <ReactAnimatedWeather
                   icon='CLOUDY'
                   color='darkgrey'
-                  size='200'
+                  size='150'
                   animate='true'
                 />
               ),
@@ -109,7 +160,7 @@ class CurrentWeather extends Component {
             feelsLike: Math.round(data.data.main.feels_like) + "°F",
             humidity: data.data.main.humidity + "%",
             wind: Math.round(data.data.wind.speed) + " mph",
-            windDirection: data.data.wind.deg,
+            windDirection: getCardinal(data.data.wind.deg),
             tempMin: Math.round(data.data.main.temp_min) + "°F",
             tempMax: Math.round(data.data.main.temp_max) + "°F",
             pressure: data.data.main.pressure,
@@ -132,71 +183,38 @@ class CurrentWeather extends Component {
             cityNotFound: "404",
           });
         } else {
-          let weatherIdForecast = response.response.list[0].weather.id;
-
-          if (weatherIdForecast <= 232) {
-            this.setState({
-              weatherIconForecast: (
-                <ReactAnimatedWeather
-                  icon='SLEET'
-                  color='black'
-                  size='64'
-                  animate='true'
-                />
-              ),
-            });
-          } else if (weatherIdForecast >= 300 && weatherIdForecast <= 531) {
-            this.setState({
-              weatherIconForecast: (
-                <ReactAnimatedWeather
-                  icon='RAIN'
-                  color='black'
-                  size='64'
-                  animate='true'
-                />
-              ),
-            });
-          } else if (weatherIdForecast >= 600 && weatherIdForecast <= 622) {
-            this.setState({
-              weatherIconForecast: (
-                <ReactAnimatedWeather
-                  icon='SNOW'
-                  color='black'
-                  size='64'
-                  animate='true'
-                />
-              ),
-            });
-          } else if (weatherIdForecast === 800) {
-            this.setState({
-              weatherIconForecast: (
-                <ReactAnimatedWeather
-                  icon='CLEAR_DAY'
-                  color='black'
-                  size='64'
-                  animate='true'
-                />
-              ),
-            });
-          } else if (weatherIdForecast >= 801 && weatherIdForecast <= 804) {
-            this.setState({
-              weatherIconForecast: (
-                <ReactAnimatedWeather
-                  icon='CLOUDY'
-                  color='darkblue'
-                  size='64'
-                  animate='true'
-                />
-              ),
-            });
-          }
           this.setState({
             tomorrowTemp:
               Math.round(response.response.list[0].main.temp) + "°F",
-            day3: Math.round(response.response.list[1].main.temp) + "°",
-            day4: Math.round(response.response.list[2].main.temp) + "°",
-            day5: Math.round(response.response.list[3].main.temp) + "°",
-            day6: Math.round(response.response.list[4].main.temp) + "°",
+            day2: Math.round(response.response.list[1].main.temp) + "°F",
+            day3: Math.round(response.response.list[2].main.temp) + "°F",
+            day4: Math.round(response.response.list[3].main.temp) + "°F",
+            day5: Math.round(response.response.list[4].main.temp) + "°F",
+            tomorrowWind: Math.round(response.response.list[0].wind.speed),
+            tomorrowHumidity: response.response.list[0].main.humidity,
+            tomorrowFL:
+              Math.round(response.response.list[0].main.feels_like) + "°F",
+            twoWind: Math.round(response.response.list[1].wind.speed),
+            twoHumidity: response.response.list[1].main.humidity,
+            twoFL: Math.round(response.response.list[1].main.feels_like) + "°F",
+            threeWind: Math.round(response.response.list[2].wind.speed),
+            threeHumidity: response.response.list[2].main.humidity,
+            threeFL:
+              Math.round(response.response.list[2].main.feels_like) + "°F",
+            fourWind: Math.round(response.response.list[3].wind.speed),
+            fourHumidity: response.response.list[3].main.humidity,
+            fourFL:
+              Math.round(response.response.list[3].main.feels_like) + "°F",
+            fiveWind: Math.round(response.response.list[4].wind.speed),
+            fiveHumidity: response.response.list[4].main.humidity,
+            fiveFL:
+              Math.round(response.response.list[4].main.feels_like) + "°F",
+            avgTemp:
+              average(
+                response.response.list[0].main.temp,
+                response.response.list[1].main.temp,
+                response.response.list[2].main.temp
+              ) + "°F",
           });
         }
       });
@@ -228,7 +246,7 @@ class CurrentWeather extends Component {
                       Description: {this.state.currentConditionDescription}
                     </p>
                   </div>
-                  <div className='col-md-5'>
+                  <div className='col-md-5 mt-auto mb-auto'>
                     <div>{this.state.weatherIcon}</div>
                   </div>
                   <div className='col-md-3 mt-auto mb-auto mx-auto'>
@@ -238,7 +256,9 @@ class CurrentWeather extends Component {
                     <p className='conditionDetails'>
                       Low: {this.state.tempMin}{" "}
                     </p>
-                    <p className='conditionDetails'>Avg. Temp (3-Day):</p>
+                    <p className='conditionDetails'>
+                      Avg. Temp (3-Day): {this.state.avgTemp}
+                    </p>
                     <p className='conditionDetails'>
                       Humidity: {this.state.humidity}{" "}
                     </p>
@@ -246,7 +266,7 @@ class CurrentWeather extends Component {
                       Wind Speed: {this.state.wind}{" "}
                     </p>
                     <p className='conditionDetails'>
-                      Wind Direction: {this.state.windDirection} degrees
+                      Wind Direction: {this.state.windDirection}
                     </p>
                     <p className='conditionDetails'>
                       Atmospheric Pressure: {this.state.pressure} atm
@@ -254,23 +274,74 @@ class CurrentWeather extends Component {
                   </div>
                 </div>
                 <div className='frcstWeather shadow-lg'>
-                  <h4>5-Day Forecast:</h4>
-                  <div className='row frcstRow'>
+                  <div className='row frcstTitle'>
+                    <h4>Weather Forecast:</h4>
+                  </div>
+                  <div className='row frcstRow mx-auto'>
                     <div className='fcCrd col-lg-2 shadow-lg'>
-                      <p>Tomorrow's Forecast: {this.state.tomorrowTemp}</p>
-                      <div>{this.state.weatherIconForecast}</div>
+                      <p>Tomorrow's Forecast:</p>
+                      <p className='display-5'>{this.state.tomorrowTemp}</p>
+                      <p className='forecastDetails'>
+                        Feels Like: {this.state.tomorrowFL}
+                      </p>
+                      <p className='forecastDetails'>
+                        Humidity: {this.state.tomorrowHumidity}%
+                      </p>
+                      <p className='forecastDetails'>
+                        Wind Speed: {this.state.tomorrowWind} mph
+                      </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
-                      <p>2-Day Forecast: {this.state.day3}</p>
+                      <p>2-Day Forecast:</p>
+                      <p className='display-5'>{this.state.day2}</p>
+                      <p className='forecastDetails'>
+                        Feels Like: {this.state.twoFL}
+                      </p>
+                      <p className='forecastDetails'>
+                        Humidity: {this.state.twoHumidity}%
+                      </p>
+                      <p className='forecastDetails'>
+                        Wind Speed: {this.state.twoWind} mph
+                      </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
-                      <p>3-Day Forecast: {this.state.day4}</p>
+                      <p>3-Day Forecast:</p>
+                      <p className='display-5'>{this.state.day3}</p>
+                      <p className='forecastDetails'>
+                        Feels Like: {this.state.threeFL}
+                      </p>
+                      <p className='forecastDetails'>
+                        Humidity: {this.state.threeHumidity}%
+                      </p>
+                      <p className='forecastDetails'>
+                        Wind Speed: {this.state.threeWind} mph
+                      </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
-                      <p>4-Day Forecast: {this.state.day5}</p>
+                      <p>4-Day Forecast:</p>
+                      <p className='display-5'>{this.state.day4}</p>
+                      <p className='forecastDetails'>
+                        Feels Like: {this.state.fourFL}
+                      </p>
+                      <p className='forecastDetails'>
+                        Humidity: {this.state.fourHumidity}%
+                      </p>
+                      <p className='forecastDetails'>
+                        Wind Speed: {this.state.fourWind} mph
+                      </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
-                      <p>5-Day Forecast: {this.state.day6}</p>
+                      <p>5-Day Forecast:</p>
+                      <p className='display-5'>{this.state.day5}</p>
+                      <p className='forecastDetails'>
+                        Feels Like: {this.state.fiveFL}
+                      </p>
+                      <p className='forecastDetails'>
+                        Humidity: {this.state.fiveHumidity}%
+                      </p>
+                      <p className='forecastDetails'>
+                        Wind Speed: {this.state.fiveWind} mph
+                      </p>
                     </div>
                   </div>
                 </div>
