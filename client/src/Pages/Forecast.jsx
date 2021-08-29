@@ -5,7 +5,7 @@ import ReactAnimatedWeather from 'react-animated-weather';
 
 //components
 import ErrorPage from './Error';
-import { Loader } from '../Components/Loader';
+import { Throbber } from '../Components/Throbber';
 
 class CurrentWeather extends Component {
 	constructor(props) {
@@ -20,9 +20,13 @@ class CurrentWeather extends Component {
 		      windDirection: '',
 		      currentCondition: '',
 		      currentConditionDescription: '',
+			  tempMin: '',
+			  tempMax: '',
+			  pressure: '',
 		      weatherIcon: '',
 		      cityName: '',
 		      cityNotFound: '',
+			  weatherIconForecast: '',
 			  tomorrowTemp: '',
 			  day3: '',
 			  day4: '',
@@ -44,23 +48,26 @@ class CurrentWeather extends Component {
 				let weatherId = data.data.weather[0].id;
 
 				if(weatherId <= 232) {
-					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SLEET' color='black' size='64' animate='true' /> })
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SLEET' color='black' size='200' animate='true' /> })
 				} else if(weatherId >= 300 && weatherId <= 531) {
-					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='RAIN' color='black' size='64' animate='true' /> });
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='RAIN' color='black' size='200' animate='true' /> });
 				} else if(weatherId >= 600 && weatherId <= 622 ) {
-					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SNOW' color='black' size='64' animate='true' /> });
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SNOW' color='black' size='200' animate='true' /> });
 				} else if(weatherId === 800) {
-					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLEAR_DAY' color='black' size='64' animate='true' /> });
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLEAR_DAY' color='black' size='200' animate='true' /> });
 				} else if(weatherId >= 801 && weatherId <= 804) {
-					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLOUDY' color='black' size='64' animate='true' /> });
+					 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLOUDY' color='darkgrey' size='200' animate='true' /> });
 				}
 			     this.setState({
 			        isLoading: false,
-			        currentTemp: Math.round(data.data.main.temp) + '°',
-					feelsLike: Math.round(data.data.main.feels_like) + '°',
+			        currentTemp: Math.round(data.data.main.temp) + '°F',
+					feelsLike: Math.round(data.data.main.feels_like) + '°F',
 			        humidity: data.data.main.humidity + '%',
 			        wind: Math.round(data.data.wind.speed) + ' mph',
 			        windDirection: data.data.wind.deg,
+					tempMin: Math.round(data.data.main.temp_min) + '°F',
+					tempMax: Math.round(data.data.main.temp_max) + '°F',
+					pressure: data.data.main.pressure,
 			        currentCondition: data.data.weather[0].main,
 			        currentConditionDescription: data.data.weather[0].description,
 			        cityName: data.data.name
@@ -83,18 +90,18 @@ class CurrentWeather extends Component {
 					let weatherId = response.response.list[0].weather.id;
 
 					if(weatherId <= 232) {
-						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SLEET' color='black' size='64' animate='true' /> })
+						 this.setState({ weatherIconForecast: <ReactAnimatedWeather icon='SLEET' color='black' size='64' animate='true' /> })
 					} else if(weatherId >= 300 && weatherId <= 531) {
-						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='RAIN' color='black' size='64' animate='true' /> });
+						 this.setState({ weatherIconForecast: <ReactAnimatedWeather icon='RAIN' color='black' size='64' animate='true' /> });
 					} else if(weatherId >= 600 && weatherId <= 622 ) {
-						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='SNOW' color='black' size='64' animate='true' /> });
+						 this.setState({ weatherIconForecast: <ReactAnimatedWeather icon='SNOW' color='black' size='64' animate='true' /> });
 					} else if(weatherId === 800) {
-						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLEAR_DAY' color='black' size='64' animate='true' /> });
+						 this.setState({ weatherIconForecast: <ReactAnimatedWeather icon='CLEAR_DAY' color='black' size='64' animate='true' /> });
 					} else if(weatherId >= 801 && weatherId <= 804) {
-						 this.setState({ weatherIcon: <ReactAnimatedWeather icon='CLOUDY' color='black' size='64' animate='true' /> });
+						 this.setState({ weatherIconForecast: <ReactAnimatedWeather icon='CLOUDY' color='darkblue' size='64' animate='true' /> });
 					}
 					this.setState({
-					tomorrowTemp: Math.round(response.response.list[0].main.temp) + '°',
+					tomorrowTemp: Math.round(response.response.list[0].main.temp) + '°F',
 					day3: Math.round(response.response.list[1].main.temp) + '°',
 					day4: Math.round(response.response.list[2].main.temp) + '°',
 					day5: Math.round(response.response.list[3].main.temp) + '°',
@@ -117,24 +124,31 @@ class CurrentWeather extends Component {
 						</Breadcrumb.Item>
 					</Breadcrumb>
 			      <div className='weatherCard'>
-					  <div className="currentWeather shadow-lg">
-					  <h4> Location | {this.state.cityName} </h4>
-				   <div className='conditionsOverview'>
-				      <p>Current Temperature: {this.state.currentTemp}</p>
-						<div>{this.state.weatherIcon}</div>
-					  <p>Feels Like: {this.state.feelsLike}</p>
-				      <p>Description: {this.state.currentConditionDescription}</p>
+					  <div className="currentWeather shadow-lg mx-0 row">
+						  <div className="col-md-1"></div>
+				   <div className="col-md-2">
+				   <h4> Location | {this.state.cityName} </h4>
+				   <p className='display-1'>{this.state.currentTemp}</p>
+				   <p className='lead conditionDetails'>Feels Like: {this.state.feelsLike}</p>
+				   <p className='lead conditionDetails'>Description: {this.state.currentConditionDescription}</p>
 				   </div>
-				   <div className='conditionDetails'>
-				      <p>Humidity: {this.state.humidity} </p>
-				      <p>Wind Speed: {this.state.wind} </p>
+				   <div className="col-md-6">
+				   <div>{this.state.weatherIcon}</div>
+				   </div>
+				   <div className="col-md-3 mt-auto mb-auto mx-auto">
+				   <p className='lead conditionDetails'>High: {this.state.tempMax} </p>
+					<p className='lead conditionDetails'>Low: {this.state.tempMin} </p>
+						<p className='lead conditionDetails'>Humidity: {this.state.humidity} </p>
+					<p className='lead conditionDetails'>Wind Speed: {this.state.wind} </p>
+					<p className='lead conditionDetails'>Wind Direction: {this.state.windDirection} degrees</p>
+					<p className='lead conditionDetails'>Atmospheric Pressure: {this.state.pressure} millibars</p>
 				   </div>
 				   </div>
 				   <div className="frcstWeather shadow-lg">
 				  <div className="row frcstRow">
 				  <div className="fcCrd col-lg-2 shadow-lg">
 				 <p>Tomorrow's Forecast: {this.state.tomorrowTemp}</p>
-				 <div>{this.state.weatherIcon}</div>
+				 <div>{this.state.weatherIconForecast}</div>
 				 </div>
 				 <div className="fcCrd col-lg-2 shadow-lg">
 				 <p>2-Day Forecast: {this.state.day3}</p>
@@ -158,7 +172,7 @@ class CurrentWeather extends Component {
 		)
 		const LoadingDisplay = (
 			<div className='loading'>
-			   <Loader />
+			   <Throbber />
 			</div>
 		)
 		const CurrentWeatherCard = ( 

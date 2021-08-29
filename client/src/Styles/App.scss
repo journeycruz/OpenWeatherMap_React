@@ -393,11 +393,11 @@ a {
 
 .currentWeather {
     border-radius: 10px;
-    padding: 20px;
-    height: 38.5vh;
-    margin-bottom: 2vh;
+    padding: 40px;
+    height: max-content;
     background-color: rgba(0, 0, 0, 0.651);
     backdrop-filter: blur(10px);
+    width: 100%;
 }
 
 .frcstRow {
@@ -412,6 +412,11 @@ a {
     place-items: center;
     background-color: rgba(0, 0, 0, 0.651);
     backdrop-filter: blur(10px);
+    margin-top: 2vh;
+}
+
+.conditionDetails {
+    margin: auto;
 }
 
 .transparent {

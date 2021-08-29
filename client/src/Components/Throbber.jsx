@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Loader = () => {
+export const Throbber = () => {
     return (
         <div>
             <div className="preloader" style={ {opacity: '1'}}>
