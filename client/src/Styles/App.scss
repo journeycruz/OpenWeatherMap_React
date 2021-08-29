@@ -1,13 +1,13 @@
 // Layouts
-$short-window: 'only screen and (max-height: 484px)';
-$extra-device: 'only screen and (min-width: 1600px) and (max-width: 2560px)';
-$laptop-device: 'only screen and (min-width: 1200px) and (max-width: 1599px)';
-$lg-layout: 'only screen and (min-width: 992px) and (max-width: 1199px)';
-$md-layout:'only screen and (min-width: 768px) and (max-width: 991px)';
-$sm-layout:'only screen and (max-width: 767px)';
-$large-mobile: 'only screen and (max-width: 575px)';
-$small-mobile: 'only screen and (max-width: 479px)';
-// 
+$short-window: "only screen and (max-height: 484px)";
+$extra-device: "only screen and (min-width: 1600px) and (max-width: 2560px)";
+$laptop-device: "only screen and (min-width: 1200px) and (max-width: 1599px)";
+$lg-layout: "only screen and (min-width: 992px) and (max-width: 1199px)";
+$md-layout: "only screen and (min-width: 768px) and (max-width: 991px)";
+$sm-layout: "only screen and (max-width: 767px)";
+$large-mobile: "only screen and (max-width: 575px)";
+$small-mobile: "only screen and (max-width: 479px)";
+//
 // Style
 .hero {
     position: absolute;
@@ -146,7 +146,7 @@ label.placeholder {
 }
 
 .footer {
-    background-color: #20252A;
+    background-color: #20252a;
     padding-top: 35px;
     color: white;
     a {
@@ -188,7 +188,7 @@ label.placeholder {
 }
 
 a {
-    color: #F66947;
+    color: #f66947;
     text-decoration: none;
 }
 
@@ -211,7 +211,7 @@ a {
 .path {
     stroke: #9ea1a4;
     stroke-width: 0.25;
-    fill: #241E20;
+    fill: #241e20;
 }
 
 #cloud {
@@ -333,7 +333,7 @@ a {
 }
 
 .text {
-    font-family: Helvetica, 'Helvetica Neue', sans-serif;
+    font-family: Helvetica, "Helvetica Neue", sans-serif;
     letter-spacing: 1px;
     text-align: center;
     margin-left: -43px;
@@ -404,6 +404,10 @@ a {
     width: 100%;
 }
 
+.lead {
+    margin: auto;
+}
+
 .frcstWeather {
     border-radius: 10px;
     height: max-content;
@@ -417,10 +421,11 @@ a {
 
 .conditionDetails {
     margin: auto;
+    font-size: medium;
 }
 
 .transparent {
-    background-image: linear-gradient(#F5456D, #475BED);
+    background-image: linear-gradient(#f5456d, #f4791f);
 }
 
 .fcCrd {

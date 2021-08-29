@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { FiCheckSquare } from "react-icons/fi";
-import { VscDebugStart } from 'react-icons/vsc';
-import { GrLinkNext } from 'react-icons/gr';
+import { VscDebugStart } from "react-icons/vsc";
+import { GrLinkNext } from "react-icons/gr";
 
 const ServiceList = [
   {
     icon: <VscDebugStart />,
     title: "Step 1",
-    description:
-      "Heroku communicates with Express Server to load React SPA.",
+    description: "Heroku communicates with Express Server to load React SPA.",
   },
   {
     icon: <GrLinkNext />,
@@ -36,8 +35,7 @@ const ServiceList = [
   {
     icon: <FiCheckSquare />,
     title: "Step 6",
-    description:
-      "New state key values are rendered on the Forecast Dashboard.",
+    description: "New state key values are rendered on the Forecast Dashboard.",
   },
 ];
 
@@ -47,24 +45,24 @@ class About extends Component {
 
     return (
       <React.Fragment>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title">
-                <h2 className="display-3">How It Works:</h2>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-lg-12'>
+              <div className='section-title'>
+                <h2 className='display-3'>How It Works:</h2>
               </div>
               <br />
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className='row'>
           {ServiceContent.map((val, i) => (
             <div className='col-md-4' key={i}>
               <span>
-                <div className="card">
-                  <div className="icon">{val.icon}</div>
-                  <div className="content">
-                    <h3 className="title">{val.title}</h3>
+                <div className='card'>
+                  <div className='icon'>{val.icon}</div>
+                  <div className='content'>
+                    <h3 className='title'>{val.title}</h3>
                     <p>{val.description}</p>
                   </div>
                 </div>
