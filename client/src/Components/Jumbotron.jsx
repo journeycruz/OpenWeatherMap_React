@@ -13,7 +13,7 @@ const Hero = () => {
           <Animated animationIn='fadeIn' isVisible='true'>
             <div className='container hero col-md-6 m-0'>
               <div className='header'>
-                <h2 className='welcome display-5'>Welcome to my Weather App</h2>
+                <h2 className='welcome display-5'>Current Weather</h2>
               </div>
               <br />
               <div className='lead instructions'>
