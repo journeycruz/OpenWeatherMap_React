@@ -214,10 +214,11 @@ class CurrentWeather extends Component {
                     <h4> Location | {this.state.cityName} </h4>
                     <p className='display-1'>{this.state.currentTemp}</p>
                     <p className='conditionDetails'>
-                      Feels Like: {this.state.feelsLike}
+                      <strong>Feels Like:</strong> {this.state.feelsLike}
                     </p>
                     <p className='conditionDetails'>
-                      Description: {this.state.currentConditionDescription}
+                      <strong>Description:</strong>{" "}
+                      {this.state.currentConditionDescription}
                     </p>
                   </div>
                   <div className='col-md-5 mt-auto mb-auto'>
@@ -225,25 +226,27 @@ class CurrentWeather extends Component {
                   </div>
                   <div className='col-md-3 mt-auto mb-auto mx-auto'>
                     <p className='conditionDetails'>
-                      High: {this.state.tempMax}{" "}
+                      <strong>High:</strong> {this.state.tempMax}{" "}
                     </p>
                     <p className='conditionDetails'>
-                      Low: {this.state.tempMin}{" "}
+                      <strong>Low:</strong> {this.state.tempMin}{" "}
                     </p>
                     <p className='conditionDetails'>
-                      Avg. Temp (3-Day): {this.state.avgTemp}
+                      <strong>Avg. Temp (3-Day):</strong> {this.state.avgTemp}
                     </p>
                     <p className='conditionDetails'>
-                      Humidity: {this.state.humidity}{" "}
+                      <strong>Humidity:</strong> {this.state.humidity}{" "}
                     </p>
                     <p className='conditionDetails'>
-                      Wind Speed: {this.state.wind}{" "}
+                      <strong>Wind Speed:</strong> {this.state.wind}{" "}
                     </p>
                     <p className='conditionDetails'>
-                      Wind Direction: {this.state.windDirection}
+                      <strong>Wind Direction:</strong>{" "}
+                      {this.state.windDirection}
                     </p>
                     <p className='conditionDetails'>
-                      Atmospheric Pressure: {this.state.pressure} atm
+                      <strong>Atmospheric Pressure:</strong>{" "}
+                      {this.state.pressure} hPa
                     </p>
                   </div>
                 </div>
@@ -253,68 +256,70 @@ class CurrentWeather extends Component {
                   </div>
                   <div className='row frcstRow mx-auto'>
                     <div className='fcCrd col-lg-2 shadow-lg'>
-                      <p>Tomorrow's Forecast:</p>
+                      <p>Tomorrow:</p>
                       <p className='display-5'>{this.state.tomorrowTemp}</p>
                       <p className='forecastDetails'>
-                        Feels Like: {this.state.tomorrowFL}
+                        <strong>Feels Like:</strong> {this.state.tomorrowFL}
                       </p>
                       <p className='forecastDetails'>
-                        Humidity: {this.state.tomorrowHumidity}%
+                        <strong>Humidity:</strong> {this.state.tomorrowHumidity}
+                        %
                       </p>
                       <p className='forecastDetails'>
-                        Wind Speed: {this.state.tomorrowWind} mph
+                        <strong>Wind Speed:</strong> {this.state.tomorrowWind}{" "}
+                        mph
                       </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
                       <p>2-Day Forecast:</p>
                       <p className='display-5'>{this.state.day2}</p>
                       <p className='forecastDetails'>
-                        Feels Like: {this.state.twoFL}
+                        <strong>Feels Like:</strong> {this.state.twoFL}
                       </p>
                       <p className='forecastDetails'>
-                        Humidity: {this.state.twoHumidity}%
+                        <strong>Humidity:</strong> {this.state.twoHumidity}%
                       </p>
                       <p className='forecastDetails'>
-                        Wind Speed: {this.state.twoWind} mph
+                        <strong>Wind Speed:</strong> {this.state.twoWind} mph
                       </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
                       <p>3-Day Forecast:</p>
                       <p className='display-5'>{this.state.day3}</p>
                       <p className='forecastDetails'>
-                        Feels Like: {this.state.threeFL}
+                        <strong>Feels Like:</strong> {this.state.threeFL}
                       </p>
                       <p className='forecastDetails'>
-                        Humidity: {this.state.threeHumidity}%
+                        <strong>Humidity:</strong> {this.state.threeHumidity}%
                       </p>
                       <p className='forecastDetails'>
-                        Wind Speed: {this.state.threeWind} mph
+                        <strong>Wind Speed:</strong> {this.state.threeWind} mph
                       </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
                       <p>4-Day Forecast:</p>
                       <p className='display-5'>{this.state.day4}</p>
                       <p className='forecastDetails'>
-                        Feels Like: {this.state.fourFL}
+                        <strong>Feels Like:</strong> {this.state.fourFL}
                       </p>
                       <p className='forecastDetails'>
-                        Humidity: {this.state.fourHumidity}%
+                        <strong>Humidity:</strong> {this.state.fourHumidity}%
                       </p>
                       <p className='forecastDetails'>
-                        Wind Speed: {this.state.fourWind} mph
+                        <strong>Wind Speed:</strong> {this.state.fourWind} mph
                       </p>
                     </div>
                     <div className='fcCrd col-lg-2 shadow-lg'>
                       <p>5-Day Forecast:</p>
                       <p className='display-5'>{this.state.day5}</p>
                       <p className='forecastDetails'>
-                        Feels Like: {this.state.fiveFL}
+                        <strong>Feels Like:</strong> {this.state.fiveFL}
                       </p>
                       <p className='forecastDetails'>
-                        Humidity: {this.state.fiveHumidity}%
+                        <strong>Humidity:</strong> {this.state.fiveHumidity}%
                       </p>
                       <p className='forecastDetails'>
-                        Wind Speed: {this.state.fiveWind} mph
+                        <strong>Wind Speed:</strong> {this.state.fiveWind} mph
                       </p>
                     </div>
                   </div>
