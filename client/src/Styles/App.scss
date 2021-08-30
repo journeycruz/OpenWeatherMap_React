@@ -64,7 +64,7 @@ video {
     border-radius: 7px;
     border: 0;
     box-sizing: border-box;
-    color: #F2F2F2;
+    color: #65657b;
     font-size: 18px;
     height: 100%;
     outline: 0;
@@ -217,7 +217,7 @@ a {
 }
 
 .path {
-    stroke: #ffd900;
+    stroke: #afafaf;
     stroke-width: 0.25;
     fill: #241e20;
 }
@@ -274,7 +274,7 @@ a {
 
 .drop {
     opacity: 1;
-    background: #7cd7c2;
+    background: #F2F2F2;
     display: block;
     float: left;
     width: 3px;
@@ -379,7 +379,6 @@ a {
     .error {
         position: absolute;
         transform: translate(-50%, -50%);
-        border: 1px solid #F2F2F2;
         height: 100vh;
         width: 50vh;
         display: grid;
