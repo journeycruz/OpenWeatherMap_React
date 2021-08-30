@@ -5,15 +5,15 @@ import { Animated } from "react-animated-css";
 const Hero = () => {
   return (
     <div id='home' className='vid-container m-0'>
-      <div className='justify-content-center m-0'>
+      <div className='justify-content-center m-0 text-center'>
         <Jumbotron>
           <video className='videoTag' autoPlay loop muted playsinLine>
-            <source src='../assets/home_bg.mp4' type='video/mp4' />
+            <source src='./assets/sunny-weather.mp4' type='video/mp4' />
           </video>
           <Animated animationIn='fadeIn' isVisible='true'>
-            <div className='container hero col-md-7 text-center m-0'>
+            <div className='container hero col-md-6 m-0'>
               <div className='header'>
-                <h2 className='display-5'>Welcome to my Weather App</h2>
+                <h2 className='welcome display-5'>Welcome to my Weather App</h2>
               </div>
               <br />
               <div className='lead instructions'>

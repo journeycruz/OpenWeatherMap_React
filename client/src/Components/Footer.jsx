@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
-import logo from "../logo.svg";
+import logo from '../assets/logo.svg';
 
 const Footer = () => {
   return (
@@ -22,8 +22,8 @@ const Footer = () => {
               href='https://github.com/journeycruz?tab=repositories'>
               <p>Find More Projects</p>
             </a>
-            <div>
-              Powered By:&nbsp; ReactJS
+            <div id='pb-react'>
+              Built with ReactJS&nbsp;
               <img src={logo} className='App-logo' alt='logo' />
             </div>
           </MDBCol>

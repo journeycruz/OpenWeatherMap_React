@@ -110,7 +110,7 @@ class CurrentWeather extends Component {
               weatherIcon: (
                 <ReactAnimatedWeather
                   icon='CLEAR_DAY'
-                  color='goldenrod'
+                  color='#ffd900'
                   size='150'
                   animate='true'
                 />
@@ -201,8 +201,8 @@ class CurrentWeather extends Component {
       ) : (
         <div className='transparent'>
           <Animated isVisible='true' animationIn='fadeIn'>
-            <div className='weatherCardContainer shadow-lg p-3 mb-5 rounded'>
-              <Breadcrumb style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+            <div className='weatherCardContainer shadow-lg p-3 mb-5'>
+              <Breadcrumb>
                 <Breadcrumb.Item href='/'>Home</Breadcrumb.Item>
                 <Breadcrumb.Item active href='/weather-dashboard'>
                   Weather Dashboard
@@ -221,7 +221,7 @@ class CurrentWeather extends Component {
                     </p>
                   </div>
                   <div className='col-md-5 mt-auto mb-auto'>
-                    <div>{this.state.weatherIcon}</div>
+                    <div className='weatherIcon'>{this.state.weatherIcon}</div>
                   </div>
                   <div className='col-md-3 mt-auto mb-auto mx-auto'>
                     <p className='conditionDetails'>

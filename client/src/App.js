@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./Pages/Home";
 import Forecast from "./Pages/Forecast";
 import ErrorPage from "./Pages/Error";
+import { Loading } from "./Components/Loading";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path='/' component={Home} />
         <Route exact path='/weather-dashboard' component={Forecast} />
         <Route exact path='/error' component={ErrorPage} />
+        <Route exact path='/loading' component={Loading} />
       </Switch>
     </div>
   );

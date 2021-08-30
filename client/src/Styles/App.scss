@@ -11,11 +11,12 @@ $small-mobile: "only screen and (max-width: 479px)";
 // Jumbotron
 .hero {
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #555C73;
-    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.651);
+    backdrop-filter: blur(10px);
+    border-radius: 7px;
     box-sizing: border-box;
     height: max-content;
     padding: 20px;
@@ -28,6 +29,8 @@ $small-mobile: "only screen and (max-width: 479px)";
 .jumbotron {
     height: 100vh;
     padding-top: 40px;
+    display: grid;
+    place-items: center;
 }
 
 .header {
@@ -57,8 +60,8 @@ video {
 }
 
 .input {
-    background-color: #303245;
-    border-radius: 12px;
+    background-color: #F2F2F2;
+    border-radius: 7px;
     border: 0;
     box-sizing: border-box;
     color: #F2F2F2;
@@ -70,8 +73,8 @@ video {
 }
 
 .cut {
-    background-color: #555C73;
-    border-radius: 10px;
+    background-color: transparent;
+    border-radius: 7px;
     height: 20px;
     left: 20px;
     position: absolute;
@@ -103,12 +106,12 @@ video {
 }
 
 label.placeholder {
-    background-color: #303245;
+    background-color: transparent;
 }
 
 .input:focus~.placeholder,
 .input:not(:placeholder-shown)~.placeholder {
-    transform: translateY(-30px) translateX(10px) scale(0.75);
+    transform: translateY(-40px) translateX(10px) scale(0.75);
 }
 
 .input:not(:placeholder-shown)~.placeholder {
@@ -116,20 +119,20 @@ label.placeholder {
 }
 
 .input:focus~.placeholder {
-    color: #D9AC59;
-    background-color: #555C73;
+    color: #F2F2F2;
+    background-color: transparent;
 }
 
 .submit {
     background-color: #BF9663;
-    border-radius: 12px;
+    border-radius: 7px;
     border: 0;
     box-sizing: border-box;
     color: #F2F2F2;
     cursor: pointer;
     font-size: 18px;
     height: 50px;
-    margin-top: 38px;
+    margin-top: 18px;
     outline: 0;
     text-align: center;
     width: 100%;
@@ -146,6 +149,7 @@ label.placeholder {
 }
 
 .footer {
+    min-height: max-content;
     background-color: #20252a;
     padding-top: 35px;
     color: #F2F2F2;
@@ -154,8 +158,12 @@ label.placeholder {
         color: #F2F2F2;
     }
     a:hover {
-        color: #BF9663;
+        color: #D9AC59;
     }
+}
+
+#pb-react {
+    margin-bottom: 2vh;
 }
 
 .App-logo {
@@ -209,7 +217,7 @@ a {
 }
 
 .path {
-    stroke: #9ea1a4;
+    stroke: #ffd900;
     stroke-width: 0.25;
     fill: #241e20;
 }
@@ -220,7 +228,7 @@ a {
 }
 
 #cloud path {
-    fill: #efefef;
+    fill: #f2f2f2;
 }
 
 #sun {
@@ -241,7 +249,7 @@ a {
 
 #sun path {
     stroke-width: 0.18;
-    fill: #F2F2F2
+    fill: #ffd900;
 }
 
 @keyframes rotate {
@@ -266,7 +274,7 @@ a {
 
 .drop {
     opacity: 1;
-    background: #F2F2F2;
+    background: #7cd7c2;
     display: block;
     float: left;
     width: 3px;
@@ -340,7 +348,7 @@ a {
     font-weight: bold;
     margin-top: 20px;
     font-size: 11px;
-    color: #F2F2F2;
+    color: #f2f2f2;
     width: 200px;
 }
 
@@ -359,7 +367,7 @@ a {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #555C73;
+        background-image: linear-gradient(45deg, #000000, #054e6f);
         border-radius: 0px;
         height: 100%;
         padding: 20px;
@@ -378,6 +386,14 @@ a {
         place-items: center;
         background-color: #D9AC59;
     }
+    .submit {
+        background-color: #ffd900;
+        color: black;
+    }
+    .weatherIcon {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 // Weather Dashboard
@@ -387,13 +403,14 @@ a {
     // border: 1px solid rgba(255, 255, 255, 0.4);
     margin: auto;
     margin-top: 2.2vh;
-    background-color: rgba(242, 242, 242, 0.623);
+    background-color: rgba(5, 78, 111, 0.623);
     backdrop-filter: blur(10px);
+    border-radius: 7px;
     color: white;
 }
 
 .currentWeather {
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 40px;
     height: max-content;
     background-color: rgba(0, 0, 0, 0.651);
@@ -417,7 +434,7 @@ a {
 }
 
 .frcstWeather {
-    border-radius: 10px;
+    border-radius: 7px;
     height: max-content;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.651);
@@ -436,12 +453,14 @@ a {
 }
 
 .transparent {
-    background-image: linear-gradient(#696E8C, #555C73);
+    background-color: #000000;
 }
 
 .fcCrd {
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 5px;
+    padding: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
     height: max-content;
     color: black;
     margin: 1%;
@@ -460,5 +479,12 @@ a {
 @media #{$short-window} {
     .hero {
         top: 65%;
+    }
+    .welcome {
+        display: none;
+    }
+    video {
+        width: 100%;
+        transform: scale(1.15)
     }
 }
