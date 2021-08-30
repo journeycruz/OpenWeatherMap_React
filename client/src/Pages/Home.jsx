@@ -7,7 +7,7 @@ import Footer from "../Components/Footer";
 
 const Home = () => {
   return (
-    <div className='col-md-12'>
+    <div className='col-md-12 homeContainer mx-auto'>
       <Navigation />
       <div className='row m-0'>
         <Hero />

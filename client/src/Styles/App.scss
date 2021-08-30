@@ -18,12 +18,13 @@ $small-mobile: "only screen and (max-width: 479px)";
     backdrop-filter: blur(10px);
     border-radius: 7px;
     box-sizing: border-box;
-    height: max-content;
+    height: fit-content;
     padding: 20px;
 }
 
 .vid-container {
     min-height: fit-content;
+    background-color: #20252A;
 }
 
 .jumbotron {
@@ -146,6 +147,10 @@ label.placeholder {
     margin-bottom: 5%;
     height: 90%;
     padding: 5%;
+}
+
+.homeContainer {
+    width: 100vh;
 }
 
 .footer {

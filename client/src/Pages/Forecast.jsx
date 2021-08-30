@@ -252,7 +252,7 @@ class CurrentWeather extends Component {
                 </div>
                 <div className='frcstWeather shadow-lg'>
                   <div className='row frcstTitle'>
-                    <h4>Weather Forecast:</h4>
+                    <h5>Weather Forecast:</h5>
                   </div>
                   <div className='row frcstRow mx-auto'>
                     <div className='fcCrd col-lg-2 shadow-lg'>
